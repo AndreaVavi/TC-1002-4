@@ -63,3 +63,19 @@ def pc (nb,k):
         return 1
     else:
         return 2
+
+#Lectura iris1.csv
+df = pd.read_csv("C:/Users/Ana/.spyder-py3/iris.csv")
+df["Tipo_Flor"] = df["Tipo_Flor"].replace(["Iris-versicolor", "Iris-virginica", "Iris-setosa"], [0,1,2])
+data = df.values
+X = data[:,0:-1]
+y = data[:,-1]
+
+emb = LinearDiscriminantAnalysis(n_components = 2)
+X1t = emb.fit_transform(X,y)
+
+emb = MDS(n_components = 2)
+X2t = emb.fit_transform(X,y)
+
+emb = Isomap(n_components = 2)
+X3t = emb.fit_transform(X,y)
