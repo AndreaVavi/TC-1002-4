@@ -44,3 +44,22 @@ def neighbors(punto,X,k):
         nb.append(ds[i][0])
     print(nb)
     return nb
+
+def pc (nb,k):
+    b=0
+    c=0
+    d=0
+    for m in range (k):
+        a=nb[m]
+        if(X[a,2]==1):   #Evaluar para tipo 1
+            b=b+1
+        elif(X[a,2]==0): #Evaluar para tipo 0
+            c=c+1
+        else:            #Evaluar para tipo 2
+            d=d+1
+    if(c>b and c>d):
+        return 0
+    elif(b>c and b>d):
+        return 1
+    else:
+        return 2
