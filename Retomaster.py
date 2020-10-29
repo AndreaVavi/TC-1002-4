@@ -79,3 +79,16 @@ X2t = emb.fit_transform(X,y)
 
 emb = Isomap(n_components = 2)
 X3t = emb.fit_transform(X,y)
+
+plt.scatter(X1t[:,0], X1t[:,1], c=y)
+plt.title('Iris dataset, LDA')
+plt.show()
+plt.scatter(X2t[:,0], X2t[:,1], c=y)
+plt.title('Iris dataset, MDS')
+plt.show()
+plt.scatter(X3t[:,0], X3t[:,1], c=y)
+plt.title('Iris dataset, Isomap')
+plt.show()
+
+plt.scatter(X[:,0], X[:,1], c=y)
+plt.title('Iris dataset')
