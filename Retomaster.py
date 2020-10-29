@@ -25,3 +25,22 @@ def graphPoints(X,y): #Grafica los puntos y los puntos proyectados
     plt.xlim(-1, 1)
     plt.ylim(-1, 1)
     plt.show()
+    
+def distance (x1,y1,x2,y2):
+    d = ((x2-x1)+(y2-y1))**2
+    return math.sqrt(d)
+
+def neighbors(punto,X,k):
+    ds=list()
+    num_fila=X.shape[0]
+    for i in range (num_fila):
+        d=distance(X[i,1],X[i,2],punto[0],punto[1])
+        ds.append((i,d))
+
+    ds.sort(key=lambda tup: tup[1]) 
+
+    nb= list()
+    for i in range (k):
+        nb.append(ds[i][0])
+    print(nb)
+    return nb
